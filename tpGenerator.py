@@ -1,15 +1,12 @@
-from include.TriggerPrimitive import TriggerPrimitive as TriggerPrimitive
-from include.TPFinder import TPFinder as TPFinder
 import numpy as np
 import matplotlib.pyplot as plt
+from include.TriggerPrimitive import TriggerPrimitive as TriggerPrimitive
+import include.TPFinder
 import sys
 
 #load waveform data (100 low energy electron events, 5 - 100 MeV)
 col = np.loadtxt("data/PedSubWaveform_Collection_Dump.txt")
 ind = np.loadtxt("data/PedSubWaveform_Induction_Dump.txt")
-
-# stop code execution 
-# sys.exit()
 
 event = 2
 threshold = 30
