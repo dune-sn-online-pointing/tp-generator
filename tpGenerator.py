@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from include.TriggerPrimitive import TriggerPrimitive as TriggerPrimitive
-import include.TPFinder
+from include.TPFinder import TPFinder as TPFinder
 import sys
 
 #load waveform data (100 low energy electron events, 5 - 100 MeV)
