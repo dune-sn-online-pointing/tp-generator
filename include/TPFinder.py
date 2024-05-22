@@ -11,11 +11,15 @@ def TPFinder(waveform, thresh):
     this_hit = TriggerPrimitive()
    
     hits = []
-
+    true_adc_areas = []
     for tick, adc  in enumerate(waveform):
         if (adc > thresh and is_hit==False):
             is_hit = True
             this_hit.time_start =tick
+            temp_tick = tick
+            while (waveform[temp_tick]>0):
+                temp_tick = temp_tick - 1
+            true_start = temp_tick
            
         if(is_hit == True):
             hit_charge.append(adc)
@@ -23,6 +27,15 @@ def TPFinder(waveform, thresh):
         if (is_hit and adc<thresh):
             time_end  = tick
             is_hit = False
+            temp_tick_f = tick
+            while(waveform[temp_tick]>0):
+                temp_tick_f+=1
+            true_end = temp_tick_f
+            
+            true_adc = 0
+            for i in range(true_start,true_end):
+                true_adc = true_adc + waveform[i]
+            true_adc_areas.append(true_adc)
            
             for index, ADC in enumerate(hit_charge):
                 if (ADC == np.max(hit_charge)):
@@ -36,4 +49,4 @@ def TPFinder(waveform, thresh):
             hit_charge = []
             this_hit = TriggerPrimitive()
             
-    return hits #return set of hits for waveform
+    return hits,true_adc_areas #return set of hits for waveform
