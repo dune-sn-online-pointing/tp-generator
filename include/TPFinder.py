@@ -4,13 +4,11 @@ from .TriggerPrimitive import TriggerPrimitive
 #-------------------------------------------
 #Primitive hit finding
 #-------------------------------------------
-#This is same function as in TPFinder, put here for testing
 def TPFinder(waveform, thresh):
-
     is_hit = False
-
     hit_charge =[]    
     this_hit = TriggerPrimitive()
+    #Vars for testing purposes
     start_adc = []
     end_adc=[]
     hits = []
