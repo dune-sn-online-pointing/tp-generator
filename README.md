@@ -1,4 +1,4 @@
-# TP generator  
+# LEGACY TP generator  
 This is a code that simply can read the waveforms from a textfile and generate the Trigger Primitives.
 
 For the moment, it is just a notebook ready to run. 
